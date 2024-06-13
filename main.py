@@ -1,6 +1,6 @@
 import os
 liste1= [8, 9, 3, 6, 1, 10]
-liste1.reverse("the reversed list is " , liste1)
+liste1.reverse()
 
 liste2=[91, 67, 120, 34, 76, 54, 78, 87, 56, 64, 345]
 liste2.sort()
