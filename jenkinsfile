@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+               checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '9779d1d8-ca49-4559-86a0-dd6048bf215c', url: 'https://github.com/lamissb/python_prog.git']]) 
+            }
+        }
+        stage('Build') {
+            steps {
+                git branch: 'main', credentialsId: '9779d1d8-ca49-4559-86a0-dd6048bf215c', url: 'https://github.com/lamissb/python_prog.git'
+                bat 'python main.py'
+
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "the job has been tested"
+            }
+        }
+        
+    }
+}
